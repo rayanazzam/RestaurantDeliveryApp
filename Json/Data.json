@@ -1,0 +1,148 @@
+{
+  "category" : {
+    "01" : {
+      "imgSrc" : "https://i.imgur.com/JsGk3d9.jpg",
+      "name" : "Burgers"
+    },
+    "02" : {
+      "imgSrc" : "https://i.imgur.com/hyFABF9.jpg",
+      "name" : "Pizza"
+    },
+    "03" : {
+      "imgSrc" : "https://i.imgur.com/fypzP56.jpg",
+      "name" : "BreakFast"
+    },
+    "04" : {
+      "imgSrc" : "https://i.imgur.com/O0UDHLM.jpg",
+      "name" : "Ethiopian"
+    }
+  },
+  "users" : {
+    "Aku11" : {
+      "firstName" : "Akrem",
+      "lastName" : "Azzam",
+      "password" : "ak123",
+      "username" : "Aku11"
+    },
+    "Az123" : {
+      "firstName" : "Azzam",
+      "lastName" : "Ahmed",
+      "password" : "Azi123",
+      "username" : "Az123"
+    },
+    "Ekile" : {
+      "firstName" : "Eileen",
+      "lastName" : "Kile",
+      "password" : "E123",
+      "username" : "Ekile"
+    },
+    "Eni" : {
+      "firstName" : "Eniola",
+      "lastName" : "Sombipe",
+      "password" : "Eni123",
+      "username" : "Eni"
+    },
+    "Kkk" : {
+      "firstName" : "Kevin",
+      "lastName" : "Kile",
+      "password" : "kkk123",
+      "username" : "Kkk"
+    },
+    "Lino123" : {
+      "firstName" : "Lina",
+      "lastName" : "Ahmed",
+      "password" : "Lin123",
+      "username" : "Lino123"
+    },
+    "Lino124" : {
+      "firstName" : "Lina",
+      "lastName" : "Ahmed",
+      "password" : "Lin123",
+      "username" : "Lino124"
+    },
+    "baleymayeh" : {
+      "firstName" : "Beemnet",
+      "lastName" : "Alemayehu",
+      "password" : "b123",
+      "username" : "baleymayeh"
+    },
+    "l123" : {
+      "firstName" : "Lubaba",
+      "lastName" : "ahmed",
+      "password" : "lub",
+      "username" : "l123"
+    },
+    "mibrahim11" : {
+      "firstName" : "Mawardi",
+      "lastName" : "Ibrahim",
+      "password" : "mibrahimm",
+      "username" : "mibrahim11"
+    },
+    "rahmed" : {
+      "firstName" : "Rayan",
+      "lastName" : "Ahmed",
+      "password" : "1334567",
+      "username" : "rahmed"
+    },
+    "rayanazzam11" : {
+      "firstName" : "Rayan",
+      "lastName" : "Ahmed",
+      "password" : "rayuazzam",
+      "username" : "rayanazzam11"
+    },
+    "rayanazzam113" : {
+      "firstName" : "bre",
+      "lastName" : "Bro",
+      "password" : "dsd",
+      "username" : "rayanazzam113"
+    },
+    "rizu" : {
+      "firstName" : "Rish",
+      "lastName" : "Great",
+      "password" : "rizuuu",
+      "username" : "rizu"
+    }
+  },
+  "Food": {
+    "01": {
+      "menuId": "01",
+      "name": "Double CheeseBurger",
+      "imgSrc": "https://i.imgur.com/McdHNXh.jpg",
+      "price": "5.00",
+      "inStock": "true",
+      "description": "Double meat, Double cheese, Extra Mayo"
+    },
+    "02": {
+      "menuId": "01",
+      "name": "Triple CheeseBurger",
+      "imgSrc": "https://i.imgur.com/mmNT7fp.jpg",
+      "price": "8.00",
+      "inStock": "true",
+      "description": "Triple meat, extra cheese, extra mayo"
+    },
+    "03": {
+      "menuId": "04",
+      "name": "Kitfo",
+      "imgSrc": "https://i.imgur.com/PQ8MPnb.jpg",
+      "price": "15.00",
+      "inStock": "true",
+      "description": "Best Ethiopian traditional food. Enjoy the spicy shredded meat"
+    },
+    "04": {
+      "menuId": "04",
+      "name": "Tibs",
+      "imgSrc": "https://i.imgur.com/k0dKMFQ.jpg",
+      "price": "15.00",
+      "inStock": "true",
+      "description": "Enjoy these pieces of meat. They are unlike anything you have tasted before"
+    },
+    "05": {
+      "menuId": "04",
+      "name": "Doro Wott",
+      "imgSrc": "https://i.imgur.com/O0UDHLM.jpg",
+      "price":"15.00",
+      "inStock": "true",
+      "description": "Enjoy tasty Doro Wott"
+    }
+  }
+}
