@@ -16,10 +16,8 @@ import com.example.myapplication.Objects.Order;
 import com.example.myapplication.R;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import static java.util.Locale.US;
 
 class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -34,7 +32,7 @@ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
     public CartViewHolder(View itemView) {
         super(itemView);
         txtCartName = itemView.findViewById(R.id.cart_item_name);
-        txtPrice = itemView.findViewById(R.id.cart_item_name);
+        txtPrice = itemView.findViewById(R.id.cart_item_price);
         imgCartCount = itemView.findViewById(R.id.cart_item_count);
     }
 

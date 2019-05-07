@@ -25,8 +25,8 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        usernameEdt =  (EditText) findViewById(R.id.usernameSignIn);
-        passwordEdt =  (EditText) findViewById(R.id.passwordSignIn);
+        usernameEdt =  findViewById(R.id.usernameSignIn);
+        passwordEdt =  findViewById(R.id.passwordSignIn);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference usersRef = database.getReference().child("users");

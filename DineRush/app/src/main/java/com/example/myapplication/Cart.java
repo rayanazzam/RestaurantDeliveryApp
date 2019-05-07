@@ -20,22 +20,21 @@ import com.example.myapplication.Objects.User;
 import com.example.myapplication.viewHolder.CartAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class Cart extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    //RecyclerView.LayoutManager layoutManager;
 
     FirebaseDatabase database;
     DatabaseReference requestRef;
 
     TextView txtTotalPrice;
     Button btnPlace;
+
+    double totalPrice;
 
     List<Order> cart;
     CartAdapter adapter;
@@ -50,7 +49,7 @@ public class Cart extends AppCompatActivity {
 
         requestRef = database.getInstance().getReference("Requests");
 
-        //Init
+        //Initialize
         recyclerView = findViewById(R.id.listCart);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,8 +60,10 @@ public class Cart extends AppCompatActivity {
         btnPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create new Request
-                showAlertDialog();
+                if(totalPrice == 0)
+                    Toast.makeText(Cart.this, "Your cart is empty",Toast.LENGTH_SHORT).show();
+                else
+                    showAlertDialog();
             }
         });
 
@@ -86,18 +87,28 @@ public class Cart extends AppCompatActivity {
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Requests request = new Requests(currentUser.getUsername(),
-                        currentUser.getFirstName() + " " + currentUser.getLastName(),
-                        edtAddress.getText().toString(),
-                        txtTotalPrice.getText().toString(),
-                        cart);
-                requestRef.child(String.valueOf(System.currentTimeMillis())).setValue(request);
 
-                //Delete Cart
-                new Database(getBaseContext()).cleanCart();
-                Toast.makeText(Cart.this,
-                        "Thank you, your order has been received", Toast.LENGTH_LONG).show();
-                finish();
+                boolean validAddress = validateAddress(edtAddress.getText().toString());
+
+                if(!validAddress) {
+                    Toast.makeText(Cart.this,
+                            "Please enter a valid address", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    Requests request = new Requests(currentUser.getUsername(),
+                            currentUser.getFirstName() + " " + currentUser.getLastName(),
+                            edtAddress.getText().toString(),
+                            txtTotalPrice.getText().toString(),
+                            cart);
+                    requestRef.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+
+                    //Delete Cart
+                    new Database(getBaseContext()).cleanCart();
+                    Toast.makeText(Cart.this,
+                            "Thank you, your order has been received", Toast.LENGTH_LONG).show();
+                    finish();
+                }
             }
         });
 
@@ -115,11 +126,19 @@ public class Cart extends AppCompatActivity {
         adapter = new CartAdapter(cart, this);
         recyclerView.setAdapter(adapter);
 
-        double total = 0;
+        totalPrice = 0;
         for (Order order : cart)
-            total += (Double.parseDouble(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
+            totalPrice+= (Double.parseDouble(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
         Locale locale = new Locale ("en", "US");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-        txtTotalPrice.setText(fmt.format(total));
+        txtTotalPrice.setText(fmt.format(totalPrice));
+    }
+    public boolean validateAddress(String address) {
+        if(address.length() < 10)
+            return false;
+        if(!address.matches("^[a-zA-Z0-9\\.\\s+]*$"))
+            return false;
+        else
+            return true;
     }
 }

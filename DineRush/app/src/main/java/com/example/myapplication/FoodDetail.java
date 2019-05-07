@@ -54,6 +54,7 @@ public class FoodDetail extends AppCompatActivity {
         numberButton = findViewById(R.id.number_button);
         btnCart = findViewById(R.id.btnCart);
 
+
         proceedToCartBtn = findViewById(R.id.proceed_to_cart);
         proceedToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +64,7 @@ public class FoodDetail extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +83,7 @@ public class FoodDetail extends AppCompatActivity {
         foodDescription = findViewById(R.id.food_description);
         foodImage = findViewById(R.id.food_image);
         foodPrice = findViewById(R.id.food_price);
+
         collapsingToolbarLayout = findViewById(R.id.collapsing);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppbar);

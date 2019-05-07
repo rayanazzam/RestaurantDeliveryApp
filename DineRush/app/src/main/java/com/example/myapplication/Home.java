@@ -88,7 +88,7 @@ public class Home extends AppCompatActivity
         currentUser = (User) getIntent().getSerializableExtra("user");
         View headerView = navigationView.getHeaderView(0);
         nameDisplay = headerView.findViewById(R.id.full_name_display);
-        nameDisplay.setText("Hello, " + currentUser.getFirstName());
+        nameDisplay.setText("Hello, " + currentUser.getFirstName() + "!");
 
         //Load menu
         recyclerMenu = findViewById(R.id.recycler_menu);

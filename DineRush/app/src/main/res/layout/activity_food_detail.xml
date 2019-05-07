@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,10 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".FoodDetail">
-
-
-
-
 
         <android.support.design.widget.AppBarLayout
             android:id = "@+id/app_bar_layout"
@@ -114,7 +111,6 @@
                                 android:layout_weight="9"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content" />
-
                         </LinearLayout>
                         <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
                             android:layout_width="100dp"
@@ -128,6 +124,7 @@
                             app:finalNumber="20"></com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+
                 <android.support.v7.widget.CardView
                     app:cardElevation="5dp"
                     app:cardUseCompatPadding="true"
@@ -149,7 +146,6 @@
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>
-
 
 
     </android.support.design.widget.CoordinatorLayout>

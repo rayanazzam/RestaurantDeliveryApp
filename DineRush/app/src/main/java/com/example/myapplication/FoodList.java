@@ -7,8 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-
 import com.example.myapplication.Interface.ItemClickListener;
 import com.example.myapplication.Objects.Food;
 import com.example.myapplication.Objects.User;

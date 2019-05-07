@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.myapplication.Objects.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -50,32 +49,60 @@ public class SignUp extends AppCompatActivity {
                 username = usernameEdt.getText().toString();
                 password = passwordEdt.getText().toString();
 
-                usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.child(username).exists()) {
-                            Toast.makeText(SignUp.this, "username is already taken, " +
-                                    "please pick another",Toast.LENGTH_SHORT).show();
+
+                boolean validusername = validateText(username);
+                boolean validfirstname = validateText(firstName);
+                boolean validlastname = validateText(lastName);
+                boolean validpassword = validatePassword(password);
+
+                if(!validusername || !validlastname || !validfirstname) {
+                    Toast.makeText(SignUp.this, "Please enter valid inputs",
+                            Toast.LENGTH_SHORT).show();
+                }
+                if(!validpassword) {
+                    Toast.makeText(SignUp.this, "Please choose a stronger password, " +
+                            "Passwords must have a minimum of four characters", Toast.LENGTH_LONG ).show();
+                }
+                else {
+                    usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.child(username).exists()) {
+                                Toast.makeText(SignUp.this, "username is already taken, " +
+                                        "please pick another",Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                User user = new User(username, firstName, lastName, password);
+                                usersRef.child(username).setValue(user);
+                                Toast.makeText(SignUp.this, "Sign up success", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SignUp.this, Home.class);
+                                intent.putExtra("user", user);
+                                Common.currentUser = user;
+                                startActivity(intent);
+                                finish();
+                            }
+
                         }
-                        else {
-                            User user = new User(username, firstName, lastName, password);
-                            usersRef.child(username).setValue(user);
-                            Toast.makeText(SignUp.this, "Sign up success", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(SignUp.this, Home.class);
-                            intent.putExtra("user", user);
-                            Common.currentUser = user;
-                            startActivity(intent);
-                            finish();
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
                         }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                    });
+                }
             }
         });
+    }
+    public boolean validateText(String text) {
+        if(text.matches("^[a-zA-Z0-9]*$"))
+            return true;
+        else
+            return false;
+    }
+
+    public boolean validatePassword(String password) {
+        if(password.length()< 3)
+            return false;
+        else
+            return true;
     }
 }

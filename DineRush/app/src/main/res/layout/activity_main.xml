@@ -60,7 +60,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="cursive"
         android:gravity="center_horizontal"
-        android:text="We deliver quality food!"
+        android:text="Enjoy quality food!"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
